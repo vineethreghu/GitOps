@@ -1,0 +1,48 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+replicas:
+  - name: demo-app
+    count: 3
+patches:
+  - target:
+      kind: Ingress
+      name: demo-app
+    patch: |
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: demo-app
+      spec:
+        rules:
+          - host: prod-demo.local
+            http:
+              paths:
+                - path: /
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: demo-app
+                      port:
+                        number: 80
+  - target:
+      kind: Rollout
+      name: demo-app
+    patch: |
+      apiVersion: argoproj.io/v1alpha1
+      kind: Rollout
+      metadata:
+        name: demo-app
+      spec:
+        template:
+          spec:
+            containers:
+              - name: demo-app
+                resources:
+                  requests:
+                    cpu: 100m
+                    memory: 64Mi
+                  limits:
+                    cpu: 200m
+                    memory: 128Mi

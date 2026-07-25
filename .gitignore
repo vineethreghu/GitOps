@@ -1,0 +1,33 @@
+# Node.js artifacts
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Dependency directories
+.terraform/
+
+# Local environment files
+.env
+.env.*
+
+# Log files
+*.log
+
+# Kubernetes / kind artifacts
+get-docker.sh
+
+# Build output
+dist/
+build/
+
+# Misc
+coverage/
+.cache/
