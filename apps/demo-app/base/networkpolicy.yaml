@@ -6,10 +6,19 @@ spec:
   podSelector:
     matchLabels:
       app: demo-app
-  ingress:
-    - from:
-        - podSelector:
-            matchLabels:
-              app.kubernetes.io/name: ingress-nginx
   policyTypes:
     - Ingress
+  ingress:
+    # 1. Allow traffic from the NGINX controller's namespace
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+      ports:
+        - port: 8080
+          protocol: TCP
+    # 2. Allow Argo Rollouts to query the health endpoints locally
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: argocd
