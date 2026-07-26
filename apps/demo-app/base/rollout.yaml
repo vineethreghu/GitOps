@@ -17,6 +17,12 @@ spec:
           image: demo-app:1.0.0
           ports:
             - containerPort: 8080
+          env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: demo-api-key
+                  key: API_KEY
           livenessProbe:
             httpGet:
               path: /health
