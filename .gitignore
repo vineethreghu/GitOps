@@ -31,3 +31,6 @@ build/
 # Misc
 coverage/
 .cache/
+
+#sealed-secret key
+bootstrap/master-key.yaml
