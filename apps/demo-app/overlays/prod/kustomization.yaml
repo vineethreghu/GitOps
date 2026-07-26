@@ -23,33 +23,3 @@ patches:
                       name: demo-app
                       port:
                         number: 80
-  - target:
-      kind: Rollout
-      name: demo-app
-    patch: |
-      apiVersion: argoproj.io/v1alpha1
-      kind: Rollout
-      metadata:
-        name: demo-app
-      spec:
-        replicas: 3
-  - target:
-      kind: Rollout
-      name: demo-app
-    patch: |
-      apiVersion: argoproj.io/v1alpha1
-      kind: Rollout
-      metadata:
-        name: demo-app
-      spec:
-        template:
-          spec:
-            containers:
-              - name: demo-app
-                resources:
-                  requests:
-                    cpu: 100m
-                    memory: 64Mi
-                  limits:
-                    cpu: 200m
-                    memory: 128Mi
