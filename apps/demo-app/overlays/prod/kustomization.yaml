@@ -2,6 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base
+
+# Prod stays on the stable version
+images:
+  - name: demo-app
+    newTag: 1.0.0
+
 patches:
   - target:
       kind: Ingress
