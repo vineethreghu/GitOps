@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/vineethreghu/GitOps.git
     targetRevision: HEAD
-    path: apps/demo-app/overlays/production
+    path: apps/demo-app/overlays/prod
   destination:
     server: https://kubernetes.default.svc
-    namespace: production
+    namespace: prod
   syncPolicy:
     automated:
       prune: true
