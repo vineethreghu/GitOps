@@ -6,5 +6,6 @@ resources:
   - ingress.yaml
   - networkpolicy.yaml
   - sealed-secret.yaml
+  - analysis.yaml
 commonLabels:
   app: demo-app
