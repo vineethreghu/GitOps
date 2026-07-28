@@ -14,6 +14,11 @@ spec:
         controller:
           service:
             type: NodePort
+          metrics:
+            enabled: true
+          podAnnotations:
+            prometheus.io/scrape: "true"
+            prometheus.io/port: "10254"
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
