@@ -4,7 +4,7 @@ resources:
   - ../../base
 images:
   - name: demo-app
-    newTag: 1.0.0
+    newTag: 2.0.0
 patches:
   - target:
       kind: Ingress
