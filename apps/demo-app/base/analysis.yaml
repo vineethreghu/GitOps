@@ -9,13 +9,13 @@ spec:
   - name: success-rate
     interval: 10s
     count: 6
-    successCondition: result[0] >= 0.95
+    successCondition: len(result) > 0 && result[0] >= 0.95
     failureLimit: 3
     provider:
       prometheus:
         address: http://prometheus-server.monitoring.svc.cluster.local:80
         # This checks NGINX for non-5xx (successful) requests for the canary service
         query: |
-          sum(rate(nginx_ingress_controller_requests{status!~"5.*", service="{{args.service-name}}"}[1m])) 
+          sum(rate(nginx_ingress_controller_requests{status!~"5.*", service="{{args.service-name}}"}[3m])) 
           / 
-          sum(rate(nginx_ingress_controller_requests{service="{{args.service-name}}"}[1m]))
+          sum(rate(nginx_ingress_controller_requests{service="{{args.service-name}}"}[3m]))
