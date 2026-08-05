@@ -9,7 +9,7 @@ A GitOps framework demonstrating declarative infrastructure management, automate
 │                         GitHub Repository                       │
 │  ┌──────────────────┐                     ┌─────────────────┐   │
 │  │   core/          │                     │  apps/demo-app/ │   │
-│  │ ├─ ArgoCD Apps   │                     │  ├─ base/       │   │
+│  │ ├─ Demo Apps     │                     │  ├─ base/       │   │
 │  │ ├─ Ingress NGINX │                     │  ├─ overlays/   │   │
 │  │ ├─ Sealed Secrets│                     │     ├─ staging  │   │
 │  │ ├─ Argo Rollouts │                     │     └─ prod     │   │
