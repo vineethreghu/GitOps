@@ -6,7 +6,7 @@ resources:
 # Prod stays on the stable version
 images:
   - name: demo-app
-    newTag: 2.0.0
+    newTag: 3.0.0
 
 patches:
   - target:
